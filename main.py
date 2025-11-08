@@ -8,9 +8,9 @@ import os
 app = FastAPI()
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
-client = MongoClient(os.getenv("MONGO_URL", "mongodb+srv://brigittepagola_db_user:oHpEBKBssjyajuOS@clusterbooks.xrnvrml.mongodb.net/"))
-db = client["my_library"]
-collection = db["books"]
+client = MongoClient(os.getenv("MONGO_URL"))
+db = client.my_library
+collection = db.books
 
 class Book(BaseModel):
     title: str
